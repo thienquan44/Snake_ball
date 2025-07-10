@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prey That Runs</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-layout-container">
+        <div class="game-container">
+            <h1>The Prey That Runs</h1>
+            <div class="score-board">
+                <span class="score-text">Score: <span id="score">0</span></span>
+            </div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+            <!-- Mobile Controls -->
+            <div class="controls">
+                <button class="control-button up" data-direction="up">▲</button>
+                <button class="control-button left" data-direction="left">◀</button>
+                <button class="control-button right" data-direction="right">▶</button>
+                <button class="control-button down" data-direction="down">▼</button>
+            </div>
+
+            <!-- Message box for Game Over/Restart -->
+            <div id="messageBox" class="message-box">
+                <div id="messageText">Game Over!</div>
+                <button id="restartButton">Play Again</button>
+            </div>
+        </div>
+
+        <!-- Game Legend -->
+        <div class="game-legend">
+            <h3>Controls</h3>
+            <div class="legend-item">
+                <span class="legend-key">▲ / W</span>
+                <span>Move Up</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-key">▼ / S</span>
+                <span>Move Down</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-key">◀ / A</span>
+                <span>Move Left</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-key">▶ / D</span>
+                <span>Move Right</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-key">Spacebar</span>
+                <span>Sprint Boost</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

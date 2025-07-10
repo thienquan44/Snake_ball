@@ -1,0 +1,205 @@
+/* Global styles and font */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* Updated background to a more vibrant gradient */
+    background: linear-gradient(135deg, #7ed957, #6cb24a); /* Greenish gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars */
+    color: #333;
+}
+
+/* Main layout container for game and legend */
+.main-layout-container {
+    display: flex;
+    gap: 30px; /* Space between game and legend */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Game container styling */
+.game-container {
+    background-color: #ffffff;
+    border-radius: 20px; /* Rounded corners for the container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 90%; /* Responsive width */
+    position: relative; /* For positioning message box */
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5em; /* Larger title */
+    letter-spacing: -0.5px;
+}
+
+.score-board {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #34495e;
+    background-color: #ecf0f1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex; /* Use flex to align score */
+    justify-content: center; /* Center score now that sprint display is gone */
+    align-items: center;
+    width: 100%; /* Take full width of parent */
+    max-width: 400px; /* Match canvas width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.score-text {
+    /* flex: 1; Removed flex:1 as there's only one item now */
+    text-align: center;
+}
+
+/* Canvas styling */
+canvas {
+    background-color: #cee2f0; /* Light blue board */
+    border: 5px solid #2c3e50; /* Dark border */
+    border-radius: 15px; /* Rounded corners for the canvas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Canvas shadow */
+    display: block; /* Remove extra space below canvas */
+    width: 100%; /* Make canvas responsive within its container */
+    max-width: 500px; /* Max width for desktop */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Game over and restart message styling */
+.message-box {
+    position: absolute;
+    top: 0; /* Position relative to .game-container */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.9); /* Dark semi-transparent background */
+    color: #ffffff;
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 15px; /* Inherit from container or set separately */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 700;
+    z-index: 100; /* Ensure it's on top */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.message-box button {
+    background-color: #27ae60; /* Green for restart button */
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.message-box button:hover {
+    background-color: #2ecc71; /* Lighter green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Controls for mobile */
+.controls {
+    display: grid; /* Use grid for directional buttons */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    width: 200px; /* Fixed width for controls */
+}
+
+.control-button {
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    padding: 15px 0;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.control-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Arrange buttons in a D-pad like layout */
+.controls .up { grid-column: 2; grid-row: 1; }
+.controls .left { grid-column: 1; grid-row: 2; }
+.controls .right { grid-column: 3; grid-row: 2; }
+.controls .down { grid-column: 2; grid-row: 3; }
+
+/* Hide controls on larger screens (desktop) */
+@media (min-width: 768px) {
+    .controls {
+        display: none;
+    }
+}
+
+/* Legend Styling */
+.game-legend {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 250px; /* Fixed width for the legend */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.game-legend h3 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    color: #34495e;
+}
+
+.legend-key {
+    font-weight: 700;
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments for legend */
+@media (max-width: 768px) {
+    .main-layout-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .game-legend {
+        width: 90%; /* Full width on small screens */
+        max-width: 500px; /* Match game container max-width */
+    }
+}
